@@ -28,14 +28,14 @@ function Banner() {
 
   return (
     <header className="banner" style={{
-        backgroundImage: `url("https://upload.wikimedia.org/wikipedia/commons/c/cd/Black_flag.svg")`,
+        backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")`,
         backgroundSize: "cover",
         backgroundPosition: "center center",
     }}>
 
         <div className="banner_contents">
             <h1 className="banner_title">
-                Movie Name
+                {movie?.title || movie?.name || movie?.original_title}
             </h1>
             <div className="banner_buttons">
                 <button className="banner_button">Play</button>
@@ -43,7 +43,7 @@ function Banner() {
             </div>
             <h1 className="banner_description">
                 {
-                    truncate("Lorem ipsum dolor sit amet consectetur adipisicing elit. Est consequatur exercitationem quidem vel, debitis qui doloribus a vitae excepturi at soluta quo quaerat similique quis perspiciatis? Minus sunt iusto vitae", 150)
+                    truncate(movie?.overview, 150)
                 }
                 
             </h1>
