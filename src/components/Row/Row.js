@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axiosInstance from './axios';
+import axiosInstance from '../../axios';
 import "./Row.css";
 
 const Row = ({ title, fetchUrl, isLargeRow = false }) => {
@@ -14,7 +14,6 @@ const Row = ({ title, fetchUrl, isLargeRow = false }) => {
         fetchData();
     }, [fetchUrl])
 
-    console.log(movies);
     return (
         <div className="row">
 

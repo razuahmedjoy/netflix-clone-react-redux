@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import axiosInstance from './axios';
+import axiosInstance from '../../axios';
 import "./Banner.css";
-import requests from './Requests';
+import requests from '../../Requests';
 
 function Banner() {
 
@@ -10,7 +10,7 @@ function Banner() {
     useEffect(()=>{
         const fetchData = async () => {
             const res = await axiosInstance(requests.fetchTopRated);
-            console.log(Math.floor(Math.random() * res.data.results.length - 1))
+           
             setMovie(res.data.results[
                 Math.floor(Math.random() * res.data.results.length - 1)
             ])
@@ -20,7 +20,6 @@ function Banner() {
         fetchData();
     },[])
 
-    console.log(movie);
 
     const truncate = (str, n) => {
         return str?.length > n ? str.substr(0, n-1) + "..." : str;
